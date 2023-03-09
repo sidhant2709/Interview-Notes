@@ -1,0 +1,168 @@
+Props:                      Props stands for properties and refers to a way of passing data from a parent component to child component
+                            Props are passed to child component as an object and can be accessed using function argument
+                            The child component cannot modify the props, but can use values to render its own output.
+
+State:                      State of a component is an object that holds some information that may change over the lifetime of the component. 
+                            We should always try to make our state as simple as possible and minimize the number of stateful components.
+
+                                Both props and state are plain JavaScript objects. While both of them hold information that influences the output of render, 
+                                they are different in their functionality with respect to component. 
+                                Props get passed to the component similar to function parameters whereas state is managed within the component similar 
+                                to variables declared within a function.
+
+
+
+
+DOM                         Rendering Updating and Manupulation
+
+VirtualDom:                 React never updates the original dom directly , React creates, for every dom tree representation one object that
+                            that looks exactly same as original dom tree structure this dom is called as Virtual Dom i.e. in memory copy of 
+                            original dom that react update directly than updating the original dom directly since virtual dom is in memory
+                            and in memory operations are faster and also very easy to sync with original dom at later point of time.
+
+
+Reconciliation:             React keeps in memory virtual representation of the actual dom and keep it sync with batch update. This 
+                            process is called Reconciliation.
+
+
+Diffing Algorithm:          
+
+
+Pure Components:            Whenever the components props which are passed from outside is changed or state is changed which is inside 
+                            that component, or the parent component providing some props which are later changed with some new values 
+                            or same values, the component will be re-rendered (it is a default behaviour).
+                            But we want the component to re-render only when we receive the new value of props and skip the rerendering 
+                            when we receive the same value of props.
+                            For this purpose we can say that the component we need is a Pure Component which only re-renders when props are
+                            changing.
+
+                            In Class Component we extend it from Pure Componemt
+                            In Functional Component we can use React.memo()
+
+                            ===> Suppose there is a Child Component in side a Parent Component which is passed with a prop x = {10}
+                                 when the parent component is re-rendered and chilid component is passed prop with same value x = {10}
+                                 will the Child Component re-rendered?
+                                       <ParentComponent>
+                                           <ChildComponent x={10}>
+                                       </ParentComponent>
+                                 Here the pure component will not re-rendered
+
+                            ===> Suppose there is a Child Component in side a Parent Component which is passed with a prop x = {Object}
+                                 when the parent component is re-rendered and chilid component is passed prop with same value x = {Object}
+                                 will the Child Component re-rendered?
+                                       <ParentComponent>
+                                           <ChildComponent x={10}>
+                                       </ParentComponent>
+                                 Here the pure component will not re-rendered if the object is memoized one and rerenderd if the object is
+                                 a simple object
+
+                            ===> Suppose there is a Child Component in side a Parent Component which is passed with a prop x = {Function}
+                                 when the parent component is re-rendered and chilid component is passed prop with same value x = {Function}
+                                 will the Child Component re-rendered?
+                                       <ParentComponent>
+                                           <ChildComponent x={10}>
+                                       </ParentComponent>
+                                 Here the pure component will not re-rendered if the function is memoized one and rerenderd if the function is
+                                 a unmemoized function
+
+
+Component Composition:      Material UI 
+
+
+
+React always faster :       
+than Vanilla.Js
+
+
+Higher Order Components:    Reusability, Enhancing an attribute, 
+
+                            Input Component ======>  Reusable Component =====> Enhanced component
+                            Wrapped Component              (HOC)               Enhanced component
+
+
+                            HOC is nothing but plain JavaScript function that takes component as argument and return an Enhanced component as return
+                            value.
+
+
+                            Syntax
+                                const enhanced = HOC(wrapped);
+
+                            Removes Side Effects
+
+
+Redux:                      Redux is not related to React
+                            Avoid State Uplifting
+                            Avoid Prop-drilling
+
+                            cart : State
+                            addToCart : Action
+                            onClick : Event-handler dispatcing the "Action"
+
+                            View ===> Action ===> Updating the State
+
+
+React Memo:                 Is a HOC
+
+
+
+Memoization:                
+
+
+
+
+useCallback:                Syntax
+                                useCallback(fn, []);
+                            It returns fn when [] changes
+
+useMemo:                    Syntax
+                                useMemo(fn, []);
+                            It executes fn() and return value when [] changes
+
+
+useEffect:                  Syntax
+                                useEffect(()=>{}, []);
+                            It executes ()=>{} which is called side effect these side effect can be api call, reading from local storage,
+                            or I/O operations
+
+
+
+            ====> Usages:
+                ----> Referential Equality
+                        ==
+                        ===
+                        Object.is()
+                ----> Expensive Execution
+
+
+
+React-Router:               It is fully-featured client and server-side routing library for React
+
+                            Helps create and navigate between different URLs that make up the web application
+
+                            Provides unique URLs for different components in the app and makes the UI easily sharable with others
+
+
+                            Configuring Routes
+                            Navigation on button Click
+                            Navigating Programmaticaly
+                            Dynamic Routes
+                            Nested Routes
+                            Route Parameters
+                            Lazy Loadding
+                            Authentication
+
+
+
+Stateful And:               
+Stateless Components
+
+
+
+
+Synthetic Events:           SyntheticEvent is a cross-browser wrapper around the browser's native event. 
+                            It's API is same as the browser's native event, including stopPropagation() and preventDefault(), 
+                            except the events work identically across all browsers.
+
+
+Use of ref's                The ref is used to return a reference to the element. They should be avoided in most cases, 
+                            however, they can be useful when you need a direct access to the DOM element or an instance of a component.

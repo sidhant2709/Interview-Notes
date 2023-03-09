@@ -1,0 +1,35 @@
+Just In Time Compilation and Ahead Of Time Compilation:
+
+
+
+
+
+
+Selector              Example                         Example description
+
+.class	              .intro	                Selects all elements with class="intro"
+
+.class1.class2        .name1.name2              Selects all elements with both name1 and name2 set within its class attribute
+
+.class1 .class2       .name1 .name2             Selects all elements with name2 that is a descendant of an element with name1
+
+element.class         p.intro                   Selects all <p> elements with class="intro"
+
+element,element	      div, p	                Selects all <div> elements and all <p> elements
+
+element element	      div p	                    Selects all <p> elements inside <div> elements
+
+element>element	      div > p	                Selects all <p> elements where the parent is a <div> element
+
+element+element	      div + p	                Selects the first <p> element that is placed immediately after <div> elements
+
+element1~element2	  p ~ ul	                Selects every <ul> element that is preceded by a <p> element
+
+:active	              a:active	                Selects the active link
+
+::after	              p::after	                Insert something after the content of each <p> element
+
+::before	          p::before	                Insert something before the content of each <p> element
+
+:root	              :root	                    Selects the document's root element
+
