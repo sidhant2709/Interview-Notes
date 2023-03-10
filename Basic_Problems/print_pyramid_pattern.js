@@ -27,10 +27,6 @@ function printPattern(rows) {
       row += '* ';
     }
 
-    for (let l = 1; l <= rows - i; l++) {
-      row += ' ';
-    }
-
     console.log(row);
   }
 }
