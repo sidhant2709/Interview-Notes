@@ -35,15 +35,68 @@
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
           'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
       }
+
+      .event_propagation,
+      .event_propagation form {
+        border: 2px solid red;
+        width: 90%;
+        padding: 20px;
+      }
+      .event_propagation button {
+        border: 2px solid red;
+        margin-left: 20px;
+      }
+      .products {
+        display: flex;
+        width: 640px;
+        border: 0px solid black;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+      }
+      .products span {
+        width: 200px;
+        height: 200px;
+        border: 1px solid red;
+        background-color: palegoldenrod;
+        margin: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     </style>
   </head>
   <body>
     <h1>JavaScript Revesion</h1>
 
-    <button class="increment_btn">Increment</button>
+    <!-- DEBOUNCING & THROTTLING -->
+
+    <!-- <button class="increment_btn">Increment</button>
 
     <p>Button Pressed <span class="increment_pressed">0</span> Times</p>
-    <p>Triggered <span class="increment_count">0</span> Times</p>
-    <script src="cars24.js" defer></script>
+    <p>Triggered <span class="increment_count">0</span> Times</p> -->
+
+    <!-- EVENT PROPAGATION -->
+
+    <!-- <div class="event_propagation">
+      DIV
+      <form action="">
+        FORM
+        <button class="event-propagation__button">BUTTON</button>
+      </form>
+    </div> -->
+
+    <!-- EVENT DELEGATION -->
+
+    <div class="products">
+      <span class="span--class"><b>ONE</b></span>
+      <span class="span--class">TWO</span>
+      <span class="span--class">THREE</span>
+      <span class="span--class">4</span>
+      <span class="span--class">5</span>
+      <span class="span--class">6</span>
+    </div>
+
+    <script src="event_propagation.js" defer></script>
   </body>
 </html>
