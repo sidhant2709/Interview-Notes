@@ -11,6 +11,7 @@
         display: flex;
         align-items: center;
         background: linear-gradient(to top left, #28b487, #7dd56f);
+        flex-direction: column;
       }
       h1 {
         font-family: sans-serif;
@@ -21,10 +22,28 @@
         text-align: center;
         color: white;
       }
+      p {
+        font-size: 32px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+          'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-weight: 700;
+      }
+      button {
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+          'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      }
     </style>
   </head>
   <body>
     <h1>JavaScript Revesion</h1>
-    <script src="currying.js" defer></script>
+
+    <button class="increment_btn">Increment</button>
+
+    <p>Button Pressed <span class="increment_pressed">0</span> Times</p>
+    <p>Triggered <span class="increment_count">0</span> Times</p>
+    <script src="throttling.js" defer></script>
   </body>
 </html>

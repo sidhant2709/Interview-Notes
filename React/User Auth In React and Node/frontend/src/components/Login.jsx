@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
   display: flex;
@@ -60,15 +61,16 @@ const ErrorMessage = styled.p`
   margin-top: 10px;
 `;
 
-const Login = () => {
+const Login = ({ setIsLoggedIn }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
+  const navigate = useNavigate();
+
   const handleSubmit = async e => {
     e.preventDefault();
-
     try {
       const config = {
         headers: {
@@ -81,16 +83,17 @@ const Login = () => {
 
       localStorage.setItem('userInfo', JSON.stringify(data));
 
-      console.log(data);
-
       setLoading(false);
+      navigate('/dashboard');
+      setIsLoggedIn(true);
     } catch (error) {
       setError(error.response.data.message);
+      setLoading(false);
     }
   };
-
   return (
     <Container>
+      {loading && <h1>Loading....</h1>}
       <Form onSubmit={handleSubmit}>
         <Title>Login</Title>
         {error && <ErrorMessage>{error}</ErrorMessage>}

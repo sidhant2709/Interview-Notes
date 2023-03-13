@@ -42,7 +42,7 @@
     Run the above code both in terminal and browser console
     
 */
-
+/*
 var length = 10;
 
 function fn() {
@@ -62,6 +62,7 @@ var obj = {
 };
 
 obj.method(fn, 1);
+*/
 
 /*
 Browser console output:
@@ -115,3 +116,19 @@ Here's what's happening:
    Since arguments is an object, this refers to arguments, and arguments.length is 2, so this.length logs 2.
 
 */
+
+var length = 10;
+
+function fn() {
+  console.log(this.length);
+}
+
+var obj = {
+  length: 5,
+  method: function (fn) {
+    fn();
+    arguments[0]();
+  },
+};
+
+obj.method(fn, 1);

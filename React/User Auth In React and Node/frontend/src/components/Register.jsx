@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import axios from 'axios';
+import styled from 'styled-components';
 
 const Container = styled.div`
   display: flex;
@@ -60,46 +60,31 @@ const ErrorMessage = styled.p`
   margin-top: 10px;
 `;
 
-const Login = () => {
+const Register = () => {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
-
-  const handleSubmit = async e => {
-    e.preventDefault();
-
-    try {
-      const config = {
-        headers: {
-          'Content-type': 'application/json',
-        },
-      };
-      setLoading(true);
-
-      const { data } = await axios.post('/api/users/login', { email, password }, config);
-
-      localStorage.setItem('userInfo', JSON.stringify(data));
-
-      console.log(data);
-
-      setLoading(false);
-    } catch (error) {
-      setError(error.response.data.message);
-    }
-  };
 
   return (
     <Container>
-      <Form onSubmit={handleSubmit}>
-        <Title>Login</Title>
+      <Form action="POST">
+        <Title>Register</Title>
         {error && <ErrorMessage>{error}</ErrorMessage>}
+        <Input type="text" placeholder="Name" value={name} onChange={e => setName(e.target.value)} />
         <Input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
         <Input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
-        <Button type="submit">Login</Button>
+        <Input
+          type="password"
+          placeholder="Confirm Password"
+          value={confirmPassword}
+          onChange={e => setConfirmPassword(e.target.value)}
+        />
+        <Button type="submit">Register</Button>
       </Form>
     </Container>
   );
 };
 
-export default Login;
+export default Register;
