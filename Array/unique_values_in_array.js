@@ -24,3 +24,27 @@ function runProgram(input) {
 runProgram(`10
 1 3 5 1 8 8 7 9 1 9
 `);
+
+/*
+let arr = [1, 3, 5, 1, 8, 8, 7, 9, 1, 9, 9, 5, 5, 5];
+
+let len = arr.length;
+
+let obj = arr.reduce((r, e) => (r[e] = (r[e] || 0) + 1, r), {});
+
+let uniq = Object.keys(obj).filter(e => obj[e] == 1).map(Number)
+
+console.log(obj);
+
+console.log(uniq);
+
+
+let obj = arr.reduce((r, e) => {
+	r[e] = (r[e] || 0) + 1
+  return r;
+}, {});
+
+
+
+console.log(obj);
+*/
