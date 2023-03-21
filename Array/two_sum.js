@@ -2,6 +2,8 @@
 Given an array of Intergers nums and an target integer,
 return indices of the two numbers such that they add upto target.
 
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
 Input:
 2
 4
