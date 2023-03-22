@@ -40,10 +40,12 @@ element1~element2	  p ~ ul	                Selects every <ul> element that is pr
 
 
 Create a custom react hook to fetch users from an api https://randomuser.me/api and display their name and picture on the page, It must return list of user, the current user , a function to fetch the next user and a function to move back to the previous user
-Here when we click on the next button in UI the api is called again and the new user is displayed and when we click on previous button it should show the previous user in an optimized way
+Here when we click on the next button in UI the api is called again and the new user is displayed and when we click on previous button it should show the previous user without calling the api
 
 The api doesnot have any query params
 
 Note. The above api generates a random single user on every call we have to save all the user whenever the api call is made.
 
 Write the code in such a way that it is fully optimized and also write code for the UI also
+
+use useCallBack hook to acheive the above functionality

@@ -1,33 +1,30 @@
 import React, { useState } from 'react';
-import useUser from './useUsers';
+import useRandomUser from './useUsers';
 
 const App = () => {
-  const { userList, getCurrentUser, fetchNextUser, fetchPrevUser } = useUser();
+  const { users, currentUser, handleNextUser, handlePreviousUser, currentUserIndex } = useRandomUser();
 
-  const handleNextUser = () => {
-    fetchNextUser();
-  };
-
-  const handlePrevUser = () => {
-    fetchPrevUser();
-  };
-
-  if (!getCurrentUser()) {
-    return <p>Loading...</p>;
+  if (!currentUser) {
+    return <div>Loading...</div>;
   }
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
       <h1>User List </h1>
-      {userList.length > 0 && (
+      {currentUser && (
         <>
           <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-            <img src={getCurrentUser().picture.large} alt={getCurrentUser().name.first} />
-            <p>Name: {`${getCurrentUser().name.first} ${getCurrentUser().name.last}`}</p>
-            <p>Email: {getCurrentUser().email}</p>
-            <p>Phone: {getCurrentUser().phone}</p>
+            <img src={currentUser.picture.large} alt={currentUser.name.first} />
+            <p>Name: {`${currentUser.name.first} ${currentUser.name.last}`}</p>
+            <p>Email: {currentUser.email}</p>
+            <p>Phone: {currentUser.phone}</p>
           </div>
           <div>
-            <button onClick={handlePrevUser} style={{ margin: '15px' }}>
+            <button
+              onClick={handlePreviousUser}
+              style={{ margin: '15px' }}
+              disabled={users.length === 0 || currentUserIndex === 0}
+            >
               Previous
             </button>
             <button onClick={handleNextUser}>Next</button>
