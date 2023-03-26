@@ -1,12 +1,14 @@
 /*
-    Write a program to nearest greater element to left of an array
+    Write a program to nearest smaller element to left of an array
+    It is also called as next largest element of elements of array
+
 
     Input Format:
-    4        :  Size of the array
-    1 3 2 4  :  array itself
+    5        :  Size of the array
+    4 5 2 10 8  :  array itself
 
     Output :
-    -1 -1 3 -1
+    -1 4 -1 2 2
 */
 
 class Stack {
@@ -34,6 +36,7 @@ class Stack {
     return str;
   }
 }
+
 function runProgramStack(input) {
   input = input.trim().split('\n');
   let size = +input[0];
@@ -41,13 +44,13 @@ function runProgramStack(input) {
   let resultArr = [];
   let s = new Stack();
 
-  for (let i = 0; i < size; i++) {
+  for (let i = size - 1; i >= 0; i--) {
     if (s.isEmpty()) {
       resultArr.push(-1);
-    } else if (!s.isEmpty() && s.peek() > arr[i]) {
+    } else if (!s.isEmpty() && s.peek() < arr[i]) {
       resultArr.push(s.peek());
-    } else if (!s.isEmpty() && s.peek() <= arr[i]) {
-      while (!s.isEmpty() && s.peek() <= arr[i]) {
+    } else if (!s.isEmpty() && s.peek() >= arr[i]) {
+      while (!s.isEmpty() && s.peek() >= arr[i]) {
         s.pop();
       }
       if (s.isEmpty()) {
@@ -59,26 +62,26 @@ function runProgramStack(input) {
     s.push(arr[i]);
   }
 
-  console.log('Using ES6 Classes', resultArr);
+  console.log('ES6 Classes', resultArr.reverse());
 }
 
-runProgramStack(`4
-1 3 2 4`);
+runProgramStack(`5
+4 5 2 10 8`);
 
 function runProgram(input) {
   input = input.trim().split('\n');
   let size = +input[0];
-  let arr = input[1].split(' ').map(Number);
+  let arr = input[1].trim().split(' ').map(Number);
   let resultArr = [];
   let s = [];
 
-  for (let i = 0; i < size; i++) {
+  for (let i = size - 1; i >= 0; i--) {
     if (s.length === 0) {
       resultArr.push(-1);
-    } else if (s.length > 0 && s[s.length - 1] > arr[i]) {
+    } else if (s.length > 0 && s[s.length - 1] < arr[i]) {
       resultArr.push(s[s.length - 1]);
-    } else if (s.length > 0 && s[s.length - 1] <= arr[i]) {
-      while (s.length > 0 && s[s.length - 1] <= arr[i]) {
+    } else if (s.length > 0 && s[s.length - 1] >= arr[i]) {
+      while (s.length > 0 && s[s.length - 1] >= arr[i]) {
         s.pop();
       }
       if (s.length === 0) {
@@ -90,22 +93,22 @@ function runProgram(input) {
     s.push(arr[i]);
   }
 
-  console.log('Using Array', resultArr);
+  console.log('Using Array', resultArr.reverse());
 }
 
-runProgram(`4
-1 3 2 4`);
+runProgram(`5
+4 5 2 10 8`);
 
 function runProgramBruteForce(input) {
   input = input.trim().split('\n');
   let size = +input[0];
-  let arr = input[1].split(' ').map(Number);
+  let arr = input[1].trim().split(' ').map(Number);
   let resultArr = [];
 
   for (let i = 0; i < size; i++) {
     let next = -1;
-    for (let j = i - 1; j > 0; j--) {
-      if (arr[i] < arr[j]) {
+    for (let j = i + 1; j < size; j++) {
+      if (arr[i] > arr[j]) {
         next = arr[j];
         break;
       }
@@ -116,5 +119,5 @@ function runProgramBruteForce(input) {
   console.log('Brute Force', resultArr);
 }
 
-runProgramBruteForce(`4
-1 3 2 4`);
+runProgramBruteForce(`5
+4 5 2 10 8`);
