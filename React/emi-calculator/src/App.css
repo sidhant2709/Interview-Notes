@@ -1,0 +1,45 @@
+#root {
+  width: 1280px;
+  margin: 0 auto;
+}
+
+.App {
+  width: 100%;
+  padding: 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border: 1px solid rgb(218, 217, 217);
+}
+
+.title {
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+.slider {
+  width: 100%;
+}
+.labels {
+  display: flex;
+  justify-content: space-between;
+}
+.labelsEmi {
+  text-align: center;
+}
+
+.tenureContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.tenure {
+  width: 20%;
+  border-radius: 10rem;
+  height: 5rem;
+  background: rgb(186, 186, 188);
+}
+.selected {
+  background-color: rgb(3, 77, 250);
+  color: whitesmoke;
+}
