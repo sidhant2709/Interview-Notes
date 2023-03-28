@@ -1,28 +1,60 @@
-import { useState } from 'react';
-import './App.css';
-import { Select, SelectOption } from './Select';
+import { useState } from "react";
 
-const options = [
-    { label: 'First', value: 1 },
-    { label: 'Second', value: 2 },
-    { label: 'Third', value: 3 },
-    { label: 'Fourth', value: 4 },
-    { label: 'Fifth', value: 5 },
-];
+import "./App.css";
+
+interface Dot {
+  x: number;
+  y: number;
+}
 
 function App() {
-    const [value1, setValue1] = useState<SelectOption[]>([]);
+  const [dots, setDots] = useState<Dot[]>([]);
 
-    return (
-        <div className="App">
-            <h2>React Custom Dropdown Multi-Select & All-Select Component</h2>
-            <Select
-                options={options}
-                value={value1}
-                onChange={o => setValue1(o)}
-            />
-        </div>
-    );
+  const [cacheDots, setCacheDots] = useState<Dot[]>([]);
+
+  const draw = (e: React.MouseEvent) => {
+    const { clientX, clientY } = e;
+    setDots([...dots, { x: clientX, y: clientY }]);
+  };
+
+  const undo = () => {
+    if (dots.length > 0) {
+      const newDots = [...dots];
+      const lastDot = newDots.pop() as Dot;
+      Promise.all([setCacheDots([...cacheDots, lastDot]), setDots(newDots)]);
+    }
+  };
+
+  const redo = () => {
+    if (cacheDots.length > 0) {
+      const newCacheDots = [...cacheDots];
+      const lastCacheDots = newCacheDots.pop() as Dot;
+      Promise.all([
+        setCacheDots(newCacheDots),
+        setDots([...dots, lastCacheDots]),
+      ]);
+    }
+  };
+
+  return (
+    <div className="App">
+      <span style={{ textAlign: "center", fontSize: 20, fontWeight: "700" }}>
+        Mouse Click Tracker
+      </span>
+      <div className="button-wrapper">
+        <button onClick={undo}>Undo</button>
+        <button onClick={redo}>Redo</button>
+      </div>
+      <div className="draw-area" onClick={draw}>
+        {dots.map((dot: Dot, i: number) => {
+          const { x, y } = dot;
+          return (
+            <div key={`dot-${i}`} className="dot" style={{ left: x, top: y }} />
+          );
+        })}
+      </div>
+    </div>
+  );
 }
 
 export default App;
