@@ -35,9 +35,74 @@ var merge = function (nums1, nums2) {
 
   let mergeArr = new Array(m + n).fill(0);
 
+  // [1, 2, 3], [2, 5, 6];
+
   let i = m - 1;
   let j = n - 1;
   let k = m + n - 1;
+
+  /*
+  nums1 = [1, 2, 3]
+  nums2 = [2, 5, 6]
+
+  m = 3
+  n = 3
+
+  i = m - 1 => 3 - 1 = 2
+  j = n - 1 => 3 - 1 = 2
+  m + n - 1 => 3 + 3 - 1 = 5
+
+  mergeArr = [0, 0, 0, 0, 0, 0]
+
+  i = 2 j = 2 k = 5
+  if (nums1[i] < nums2[j]) ==> 3 < 6 true
+  mergeArr[k] ==> mergeArr[5] = 6
+  [0, 0, 0, 0, 0, 6]
+  k-- 4
+  j-- 1
+
+  i = 2, j = 1, k = 4
+  3 < 5 true
+  mergeArr[4] = 5
+  [0, 0, 0, 0, 5, 6]
+  k-- 3
+  j-- 0
+
+  i = 2, j = 0, k = 3
+  3 < 2 false
+  mergeArr[4] = 3
+  [0, 0, 0, 3, 5, 6]
+  k-- 2
+  i-- 1
+
+  i = 1, j = 0, k = 2
+  2 < 2 false
+  mergeArr[2] = 2
+  [0, 0, 2, 3, 5, 6]
+  k-- 1
+  i-- 0
+
+  i = 0, j = 0, k = 1
+  1 < 2 true
+  mergeArr[1] = 2
+  [0, 2, 2, 3, 5, 6]
+  k-- 0
+  j-- -1 Out of while loop
+
+
+  Now i = 0, j = -1, k = 0
+
+  j >= 0 : -1 >= 0 : false
+
+  i >= 0 : 0 >= 0 : true {
+  mergeArr[0] = 1
+  [1, 2, 2, 3, 5, 6]
+  k-- -1
+  i-- -1
+  }
+
+  return mergeArr
+ */
 
   while (i >= 0 && j >= 0) {
     if (nums1[i] < nums2[j]) {
