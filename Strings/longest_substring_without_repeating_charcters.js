@@ -46,9 +46,9 @@ var lengthOfLongestSubstring = function (str) {
       maxLength = Math.max(maxLength, right - left);
 
       /*
-            Mark all characters until repeating character as unvisited but not the repeating character
-            as it is in the new unique string. However move window past the repeating character.
-        */
+        Mark all characters until repeating character as unvisited but not the repeating character
+        as it is in the new unique string. However move window past the repeating character.
+      */
 
       while (left < right) {
         if (str.charCodeAt(left) != str.charCodeAt(right)) {
