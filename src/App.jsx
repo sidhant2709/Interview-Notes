@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 
-const tenureTypes = [12, 24, 36, 48];
+function numberWithCommas(x) {
+  if (x) return `₹ ${x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`;
+}
+
+const tenureTypes = [12, 24, 36, 48, 60];
 
 function App() {
-  const [cost, setCost] = useState(0);
-  const [interest, setIntrest] = useState(0);
-  const [processingFee, setProcessingFee] = useState(0);
+  const [cost, setCost] = useState(100);
+  const [interest, setIntrest] = useState(10);
+  const [processingFee, setProcessingFee] = useState(1);
   const [downPayment, setDownPayment] = useState(0);
   const [tenure, setTenure] = useState(12);
   const [emi, setEmi] = useState(0);
@@ -14,7 +18,7 @@ function App() {
   const calculateEmi = downPayment => {
     // EMI Amount = [P * R * (1+R)^N]/[(1+R)^N-1]
 
-    if (!cost) {
+    if (!cost || cost < 0) {
       return;
     }
 
@@ -60,6 +64,8 @@ function App() {
     setDownPayment(dp);
   };
 
+  console.log(downPayment);
+
   useEffect(() => {
     if (!(cost > 0)) {
       setDownPayment(0);
@@ -103,15 +109,19 @@ function App() {
       <span className="title" style={{}}>
         Down Payment
       </span>
-      <span className="title" style={{ textDecoration: 'underline' }}>
-        {' '}
-        Total Down Payment - {}
-      </span>
+      {downPayment > 0 && (
+        <>
+          <span className="title" style={{ textDecoration: 'underline' }}>
+            Total Down Payment -
+            {numberWithCommas((Number(downPayment) + (cost - downPayment) * (processingFee / 100)).toFixed(0))}
+          </span>
+        </>
+      )}
       <div>
         <input type="range" value={downPayment} min={0} max={cost} onChange={updateEmi} className="slider" id="dp" />
         <div className="labels">
           <label htmlFor="dp">0%</label>
-          <b>{downPayment}</b>
+          <b>{numberWithCommas(downPayment)}</b>
           <label htmlFor="dp">100%</label>
         </div>
       </div>
@@ -119,6 +129,13 @@ function App() {
       <span className="title" style={{}}>
         EMI Per Month
       </span>
+      {emi && (
+        <>
+          <span className="title" style={{ textDecoration: 'underline' }}>
+            Total EMI - {numberWithCommas((emi * tenure).toFixed(0))}
+          </span>
+        </>
+      )}
       <div>
         <input
           type="range"
@@ -130,8 +147,8 @@ function App() {
         />
         <div className="labels">
           <label htmlFor="">{calculateEmi(cost)}</label>
-          <b>{emi}</b>
-          <label htmlFor="">{calculateEmi(0)}</label>
+          <b>{numberWithCommas(emi)}</b>
+          <label htmlFor="">{numberWithCommas(calculateEmi(0))}</label>
         </div>
       </div>
 
