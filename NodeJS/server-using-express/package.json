@@ -1,0 +1,18 @@
+{
+  "name": "server-using-express",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  },
+  "scripts": {
+    "start": "nodemon server.js",
+    "dev": "nodemon httpServer.js",
+    "serverhttp": "nodemon typeOne/index.js",
+    "serverhttptwo": "nodemon typeTwo/index.js"
+  }
+}
