@@ -1,0 +1,81 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+
+
+body {
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 5.2rem;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 4.2rem;
+  line-height: 1.1;
+}
+
+h3 {
+  font-size: 3.2rem;
+  line-height: 1.1;
+}
+
+h4 {
+  font-size: 2.2rem;
+  line-height: 1.1;
+}
+
+a {
+  font-weight: 500;
+  color: #ff64d0;
+  text-decoration: none;
+  font-size: 4rem;
+  font-weight: 600;
+  display: block;
+  background-color: #252ff5;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 1.5rem 3rem;
+  font-size: 4rem;
+  font-weight: 600;
+  font-family: inherit;
+  background-color: #252ff5;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  color: whitesmoke;
+}
+
+button:hover {
+  border-color: #1a1a1a;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}

@@ -15,7 +15,7 @@ function App() {
 
     return (
         <div className="App">
-            <h2>React custom dropdown multi-select & all-select component</h2>
+            <h2>React Custom Dropdown Multi Select & All select component</h2>
             <Select
                 options={options}
                 value={value1}
