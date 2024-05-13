@@ -1,7 +1,7 @@
-/* 
+/*
     Write a program to count the sum of all pairs equals to a given target
 
-    Input Format:  
+    Input Format:
     4        :  Size of the array
     1 2 3 4  :  array itself
     6        :  target sum
@@ -41,10 +41,10 @@ function runProgram(input) {
   //     obj.set(arr[i], (obj.get(arr[i]) || 0) + 1);
   //   }
 
-  // console.log(obj);
-  console.log('count:', count);
-  console.log('indexes:', ...result);
-  console.log('pairs:', ...pairs);
+  console.log(obj);
+  // console.log('count:', count);
+  // console.log('indexes:', ...result);
+  // console.log('pairs:', ...pairs);
 }
 
 runProgram(`4
