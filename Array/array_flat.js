@@ -10,6 +10,6 @@ for (let i = 0; i < arrToStr.length; i++) {
   }
 }
 
-const res = arr.flat(count - 1);
+const res = arr.flat(Infinity);
 
 console.log(res.sort((a, b) => a - b));
