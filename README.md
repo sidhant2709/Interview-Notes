@@ -162,3 +162,51 @@ objWithArrow.showThis(); // `this` refers to the global object (or undefined in 
             </ul>
         </li>
 </ul>
+<br>
+
+## Execution Context:
+
+<div style="font-size: 16px; font-family: Verdana;">
+  <p>Everything inside the JavaScript happens inside the Execution context.</p>
+  <p>In the container the first component is Memory Component(Variable Environment) and second one is Code Component(Thread of Execution).</p>
+  <p>
+    <img src="./public/memory_and_code.jpg" alt="memory and code" title="Memory and Code">
+  </p>
+  <p>Memory component has all the variables and functions in key value pairs. It is also called variable environment.</p>
+  <p>Code component is the place where code is executed one line at a time. It is also called Thread of execution.</p>
+  <p>JavaScript is synchronous, single threaded language.
+    <ul>
+      <li>Synchronous: one command at time.</li>
+      <li>Single Threaded: In a specific synchronous order</li>
+    </ul>
+  </p>
+  <h3>How .js is executed and callstack?</h3>
+  <p>When .js program is ran, a global execution context is created in two phases.</p>
+  <p>
+    <ol>
+      <li>Memory allocation phase</li>
+      <li>Code Execution pahse</li>
+    </ol>
+  </p>
+  <p>
+    <img src="./public/code_snippet_execution_context.jpg" alt="code" title="code">
+  </p>
+  <h4>Memory allocation phase:</h4>
+  <p>
+    <ol>
+      <li>
+        <p>The very first thing which JS does is memory allocation, so it goes to line 1 of above code and allocates a memory space for variable <strong><em style="color: red;">n</em></strong> and then goes to line 2 and allocate a memory space for function <strong><em style="color: red;">square</em></strong>. When allocating memory for <strong><em style="color: red;">n</em></strong> it stores <strong><em style="color: red;">undefined</em></strong>, a special value for <strong><em style="color: red;">n</em></strong>.</p>
+      </li>
+      <li>
+        <p>For the function <strong><em style="color: red;">square</em></strong>, it stores the whole code of the function inside its memory space.</p>
+      </li>
+      <li>
+        <p>Same is for <strong><em style="color: red;">squareNum</em></strong> and <strong><em style="color: red;">squareNum2</em></strong> it allocates memory and stores <strong><em style="color: red;">undefined</em></strong> for them.</p>
+      </li>
+      <li><p>This is the end of memory allocation phase</p></li>
+    </ol>
+  </p>
+  <p>
+    <img src="./public/memory_allocation_phase.jpg" alt="Memory allocation phase" title="Memory allocation phase">
+  </p>
+</div>
