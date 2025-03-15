@@ -18,7 +18,7 @@ Promise.reject()
 Output:
 A
 B
-E
+F
 C
 D
 
