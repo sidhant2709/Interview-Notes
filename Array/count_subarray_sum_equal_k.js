@@ -19,29 +19,18 @@ function runProgram(input) {
   let j = 0;
   let sum = 0;
   while (j < size) {
+    sum += arr[j];
     if (j - i + 1 < k) {
       j++;
     } else if (j - i + 1 === k) {
-      if (arr.slice(i, j + 1).reduce((a, c) => a + c, 0) === sum_required) {
+      if (sum === sum_required) {
         count++;
       }
+      sum = sum - arr[i];
       i++;
       j++;
     }
   }
-  //   while (j < size) {
-  //     sum += arr[j];
-  //     if (j - i + 1 < k) {
-  //       j++;
-  //     } else if (j - i + 1 === k) {
-  //       if (sum === sum_required) {
-  //         count++;
-  //       }
-  //       sum = sum - arr[i];
-  //       i++;
-  //       j++;
-  //     }
-  //   }
   console.log(count);
 }
 
