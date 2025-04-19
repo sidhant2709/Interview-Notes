@@ -54,12 +54,14 @@ libuv works on **Windows**, **Linux**, **macOS**, and other operating systems.
 
 The Event Loop in libuv has six phases, where each phase processes a specific type of operation:
 
-1. ⏱️ **Timers Phase** → Executes `setTimeout` and `setInterval` callbacks.
-2. 🔄 **Pending Callbacks** → Handles I/O callbacks from previous operations.
-3. ⚙️ **Idle/Prepare** → Internal libuv tasks.
-4. 📡 **Poll Phase** → Waits for new I/O events (e.g., network, filesystem).
-5. 🚀 **Check Phase** → Executes `setImmediate` callbacks.
-6. ❌ **Close Callbacks** → Handles closed connections.
+| **Phase**               | **Description**                                                                 |
+|-------------------------|---------------------------------------------------------------------------------|
+| ⏱️ **Timers Phase**      | Executes `setTimeout` and `setInterval` callbacks.                              |
+| 🔄 **Pending Callbacks** | Handles I/O callbacks from previous operations.                                |
+| ⚙️ **Idle/Prepare**      | Internal libuv tasks.                                                          |
+| 📡 **Poll Phase**        | Waits for new I/O events (e.g., network, filesystem).                           |
+| 🚀 **Check Phase**       | Executes `setImmediate` callbacks.                                             |
+| ❌ **Close Callbacks**   | Handles closed connections.                                                    |
 
 ---
 
