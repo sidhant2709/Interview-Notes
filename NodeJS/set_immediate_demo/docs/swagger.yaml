@@ -1,0 +1,64 @@
+openapi: 3.0.0
+info:
+  title: Message Saver API
+  version: 1.0.0
+  description: API to save messages with validation and optional fallback.
+  x-tagGroups:
+    - name: Message Operations
+      tags:
+        - Message
+
+servers:
+  - url: http://localhost:3000
+
+tags:
+  - name: Message
+    description: Operations related to saving messages
+
+paths:
+  /api/save:
+    post:
+      tags:
+        - Message
+      summary: Save a message
+      description: Save a message with validation. Optionally use fallback content from file if `useFallback=true` is provided.
+      parameters:
+        - name: useFallback
+          in: query
+          description: Use fallback message from file if body is empty.
+          required: false
+          schema:
+            type: boolean
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  description: The message to be saved.
+              example:
+                message: "Hello, world!"
+      responses:
+        '200':
+          description: Message saved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
