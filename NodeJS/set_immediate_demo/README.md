@@ -7,6 +7,7 @@ An Express.js service that demonstrates the use of `setImmediate`, `process.next
 ## 💡 Node.js Internals Used
 
 ### 1. `process.nextTick`
+
 - **What is it?**
   `process.nextTick` schedules a callback to be executed on the next event loop iteration, before any I/O events (e.g., timers or network requests). It’s useful when you want to run code after the current operation completes but before the event loop continues.
 - **Real-Life Analogy:**
@@ -19,6 +20,7 @@ process.nextTick(() => {
 ```
 
 ### 2. `setImmediate`
+
 - **What is it?**
   `setImmediate` schedules a callback to be executed in the next iteration of the event loop, specifically after I/O events like timers and network operations.
 - **Real-Life Analogy:**
@@ -31,6 +33,7 @@ setImmediate(() => {
 ```
 
 ### 3. `setTimeout`
+
 - **What is it?**
   `setTimeout` schedules a callback to be executed after a specified delay. It’s primarily used for deferred execution of a function after a certain period.
 - **Real-Life Analogy:**
