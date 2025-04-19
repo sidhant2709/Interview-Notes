@@ -8,8 +8,8 @@ app.get('/', (req, res) => {
   res.send('<h1>Sidhant Server</h1>');
 });
 
-app.get('/about', (request, response) => {
-  response.json({ message: 'Hey! This is your server response! in about route' });
+app.get('/about', (req, res) => {
+  res.json({ message: 'Hey! This is your server response! in about route' });
 });
 
 // app.use((request, response) => {
