@@ -108,7 +108,7 @@ These listeners manage server events, such as errors and successful startup.
 
 ### Advantages of Creating a Server in This Way 🌟
 
-1. ** 🎛 Flexibility with the Underlying HTTP Server**:
+1. **🎛 Flexibility with the Underlying HTTP Server**:
    - By explicitly using `http.createServer(app)`, you gain direct access to the underlying Node.js HTTP server. This allows you to extend the server's functionality, such as adding WebSocket support, handling raw HTTP requests, or customizing server behavior beyond what Express provides.
 
 2. **🧯 Error Handling**:
