@@ -135,7 +135,7 @@ These listeners manage server events, such as errors and successful startup.
 9. **🌍 Cross-Environment Compatibility**:
    - The use of `dotenv` to load environment variables ensures that the server can be easily configured for different environments without hardcoding values. This is particularly useful for deploying the server in cloud environments or containerized setups.
 
-10. **🏗 Future Extensibility**:
+1. **🏗 Future Extensibility**:
    - By explicitly creating the server and handling events, the code is prepared for future extensions. For example, you could add HTTPS support, integrate with a load balancer, or implement advanced features like HTTP/2 without significant refactoring.
 
 ---
