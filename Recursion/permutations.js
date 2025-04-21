@@ -22,3 +22,4 @@ const arr = [1, 2, 3];
 const ans = [];
 
 getPermutations(arr, 0, ans);
+console.log(ans);
