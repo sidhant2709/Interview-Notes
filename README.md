@@ -169,3 +169,10 @@ When a `.js` program is run, a global execution context is created in two phases
   - After that, `return ans` returns control of the program back to where the function was invoked.![End of execution of Line 8](./public/memory_and_code_for_line_8.jpg)
   - When the `return` keyword is encountered, it returns control to the calling line, and the function's execution context is deleted.![Context Deleted](./public/memory_and_code_for_line_8_context_deleted.jpg)
 5. Now the control comes to **line 9** similar way it will get executed, after that is finished the **Global Execution Context** is destroyed.
+
+### 🗂️ Call Stack
+  - Javascript manages code creation, execution context and deletion with the help of **Call stack**.
+  - The **Call stack** is a mechanism used by JavaScript (and many other programming languages) to keep track of function calls. It operates in a Last In, First Out (LIFO) manner — the last function pushed onto the stack is the first one to be popped off when its execution is complete.
+  - The **Call stack** keeps track of function invocations.
+  - When a function is called, it's pushed onto the stack.
+  - When the function finishes executing, it's popped off the stack.![Callstack](./public/callstack.png) ![Callstack2](./public/callstack2.png)
