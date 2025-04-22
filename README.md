@@ -157,15 +157,15 @@ When a `.js` program is run, a global execution context is created in two phases
 
 ### 🚀 Code Execution Phase:
 
-- In this phase, the code is executed line by line. The values of variables are updated, and functions are invoked as per the code logic.
-- As it encounters `var n = 2`, it assigns `2` to `n`. Until now the value of `n` was **`undefined`**.
-- For the `function square`, there is nothing to execute as these lines were already handled during the memory creation phase.
+1. In this phase, the code is executed line by line. The values of variables are updated, and functions are invoked as per the code logic.
+2. As it encounters `var n = 2`, it assigns `2` to `n`. Until now the value of `n` was **`undefined`**.
+3. For the `function square`, there is nothing to execute as these lines were already handled during the memory creation phase.
 ![Code Execution Phase Till Line 6](./public/memory_and_code-till-line-6.jpg)
-- Now coming to **line 8**, i.e. `var squareNum = square(n)`, here functions behave a bit differently than in some other languages:
+4. Now coming to **line 8**, i.e. `var squareNum = square(n)`, here functions behave a bit differently than in some other languages:
   - A new **execution context** is created altogether.
   - Again, in this new execution context, during the memory creation phase, memory is allocated to `num` and `ans` variables, and `undefined` is placed in them.
   - Now in the code execution phase of this execution context, first `2` is assigned to `num`.
   - The line `var ans = num * num` stores `4` in `ans`.
   - After that, `return ans` returns control of the program back to where the function was invoked.![End of execution of Line 8](./public/memory_and_code_for_line_8.jpg)
   - When the `return` keyword is encountered, it returns control to the calling line, and the function's execution context is deleted.![Context Deleted](./public/memory_and_code_for_line_8_context_deleted.jpg)
-- Now the control comes to **line 9** similar way it will get executed, after that is finished the **Global Execution Context** is destroyed.
+5. Now the control comes to **line 9** similar way it will get executed, after that is finished the **Global Execution Context** is destroyed.
