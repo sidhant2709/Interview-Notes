@@ -108,7 +108,7 @@ These listeners manage server events, such as errors and successful startup.
 
 ### Advantages of Creating a Server in This Way 🌟
 
-1. ** 🎛 Flexibility with the Underlying HTTP Server**:
+1. **🎛 Flexibility with the Underlying HTTP Server**:
    - By explicitly using `http.createServer(app)`, you gain direct access to the underlying Node.js HTTP server. This allows you to extend the server's functionality, such as adding WebSocket support, handling raw HTTP requests, or customizing server behavior beyond what Express provides.
 
 2. **🧯 Error Handling**:
@@ -135,7 +135,7 @@ These listeners manage server events, such as errors and successful startup.
 9. **🌍 Cross-Environment Compatibility**:
    - The use of `dotenv` to load environment variables ensures that the server can be easily configured for different environments without hardcoding values. This is particularly useful for deploying the server in cloud environments or containerized setups.
 
-9. **🏗 Future Extensibility**:
+1. **🏗 Future Extensibility**:
    - By explicitly creating the server and handling events, the code is prepared for future extensions. For example, you could add HTTPS support, integrate with a load balancer, or implement advanced features like HTTP/2 without significant refactoring.
 
 ---
