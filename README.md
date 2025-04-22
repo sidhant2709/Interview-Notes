@@ -138,7 +138,7 @@ objWithArrow.showThis(); // `this` refers to the global object (or undefined in 
   - **Synchronous:** One command at a time.
   - **Single Threaded:** Executes code in a specific synchronous order.
 
-### 🔄 How is .js executed and what is the call stack?
+### 🔄 How is .js executed and what is the **Call stack**?
 
 When a `.js` program is run, a global execution context is created in two phases:
 
